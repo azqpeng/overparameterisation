@@ -16,6 +16,14 @@ with torch.no_grad():
 
 # Generate input on distribution from -1 to 1. 
 size = 500
+
+# dataset = np.empty((size, 1),)
+# with torch.no_grad():
+#     for i in range(size):
+#         input = 2*(torch.rand(1, 10)) - 1
+#         label = model(input)
+#         np.append(dataset, (input, label))
+
 input_data = 2*(torch.rand(size, 1, 10)) - 1
 output_data = torch.zeros(size, 1, 1)
 with torch.no_grad():
@@ -23,7 +31,7 @@ with torch.no_grad():
         output_data[i] = model(input_data[i])
 
 
-# Split into training and test data
+# # Split into training and test data
 dataset = np.concatenate((input_data.numpy(), output_data.numpy()), axis=2)
 
 training_data = dataset[:int(size*0.8)]
