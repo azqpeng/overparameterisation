@@ -21,4 +21,19 @@ for depth in range(1, 10):
         model = mlp(input_size=width, depth=depth)
 
         # training
+        optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+        loss_fn = nn.MSELoss()
+        for epoch in range(10):
+            for batch in train_dataloader:
+                optimizer.zero_grad()
+                output = model(batch)
+                loss = loss_fn(output, batch)
+                loss.backward()
+                optimizer.step()
         
+        # testing
+        for batch in test_dataloader:
+            output = model(batch)
+            loss = loss_fn(output, batch)
+        
+        # print results of regression        

@@ -6,8 +6,6 @@ from torch import nn
 """
 This class creates a neural network with variable depth and width.
 """
-
-
 class mlp(nn.Module):
     # create model
     def __init__(self, input_size=10, depth=3):
@@ -15,12 +13,10 @@ class mlp(nn.Module):
         self.flatten = nn.Flatten()
 
         # create linear blocks
-        linear_blocks = [layer for i in range(
-            depth-1) for layer in (nn.Linear(input_size, input_size), nn.ReLU())]
+        linear_blocks = [layer for i in range(depth-1) for layer in (nn.Linear(input_size, input_size), nn.ReLU())] 
 
         # stack
-        self.stack = nn.Sequential(
-            nn.Linear(10, input_size), nn.ReLU(), *linear_blocks, nn.Linear(input_size, 1))
+        self.stack = nn.Sequential(*linear_blocks, nn.Linear(input_size, 1), nn.ReLU())
 
     # feed
     def forward(self, input_data):
