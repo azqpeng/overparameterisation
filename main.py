@@ -3,7 +3,13 @@ import numpy as np
 import torch
 from mlp import mlp
 from torch import nn 
+from torch.utils.data import DataLoader
 
+training_data = np.load("training_data.npy");
+test_data = np.load("test_data.npy");
+
+train_dataloader = DataLoader(training_data, batch_size=64)
+test_dataloader = DataLoader(test_data, batch_size=64)
 
 # seeeeeeeds
 torch.manual_seed(1)

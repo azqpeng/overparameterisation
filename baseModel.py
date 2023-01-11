@@ -24,4 +24,4 @@ with torch.no_grad():
 
 print(output_data.min(), output_data.max())
 
-# TO DO: save the data
+# Turn shit into training and test datasets
