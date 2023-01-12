@@ -15,15 +15,7 @@ with torch.no_grad():
     model.stack[4].weight = torch.nn.Parameter(torch.rand(1, 10))
 
 # Generate input on distribution from -1 to 1. 
-size = 500
-
-# dataset = np.empty((size, 1),)
-# with torch.no_grad():
-#     for i in range(size):
-#         input = 2*(torch.rand(1, 10)) - 1
-#         label = model(input)
-#         np.append(dataset, (input, label))
-
+size = 1000
 input_data = 2*(torch.rand(size, 1, 10)) - 1
 output_data = torch.zeros(size, 1, 1)
 with torch.no_grad():
