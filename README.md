@@ -1,2 +1,3 @@
 Research project studying overparameterization in large scale machine learning models. 
-![image](files/Users/jzhang/Desktop/results1.png)
+![alt text](https://github.com/azqpeng/overparameterisation/blob/main/results1.png)
+

@@ -27,7 +27,7 @@ def wdTuner(training_data, test_data, depth=10, width=10, epochs = 10, fileName 
         for w in range(1, width):
             # initialization
             model = mlp(input_size=w, depth=d)
-            optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
+            optimizer = torch.optim.SGD(model.parameters(), lr=0.02)
             loss_fn = nn.MSELoss()
             epochs = 10
             # train that!
@@ -36,7 +36,7 @@ def wdTuner(training_data, test_data, depth=10, width=10, epochs = 10, fileName 
                 train_loop(train_dataloader, model, loss_fn, optimizer)
                 error = test_loop(test_dataloader, model, loss_fn)
             errorArray[d, w] = error
-    # saves array as file
+    # saves array as filef
     np.save(fileName, errorArray)
     return errorArray
 
@@ -83,4 +83,6 @@ def test_loop(dataloader, model, loss_fn):
     #print(f"Test Error: \n Accuracy: {(100*test_error):>0.1f}%, Avg loss: {test_error:>8f} \n")
     return test_error
 
-m = wdTuner(training_data, test_data, 15, 100, 20)
+
+# generation
+m = wdTuner(training_data, test_data, 30, 100, 25)

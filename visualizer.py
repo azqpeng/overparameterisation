@@ -17,16 +17,11 @@ def heatMapper(m):
     df = pd.DataFrame(m)
     plt.figure(figsize=(300, 100))
     sns.set(font_scale=0.25)
-    sns.heatmap(df, vmax=300)
+    sns.heatmap(df, vmax=30)
     plt.xlabel('Width',fontsize=22)
     plt.ylabel('Depth',fontsize=22)
     plt.show()
 
 m = np.load("errorArray.npy")
 
-m[np.isnan(m)] = 10^200
-print(np.min(m))
-
-
-#heatMapper(m)
-
+heatMapper(m)
