@@ -15,9 +15,7 @@ import matplotlib.pyplot as plt
 #     return "heheh"
 def heatMapper(m):
     df = pd.DataFrame(m)
-    df = df.reindex(index=df.index[::-1])
-
-    plt.figure(figsize=(30, 30))
+    plt.figure(figsize=(300, 100))
     sns.set(font_scale=0.25)
     sns.heatmap(df, vmax=300)
     plt.xlabel('Width',fontsize=22)
@@ -25,5 +23,10 @@ def heatMapper(m):
     plt.show()
 
 m = np.load("errorArray.npy")
-heatMapper(m)
+
+m[np.isnan(m)] = 10^200
+print(np.min(m))
+
+
+#heatMapper(m)
 

@@ -83,4 +83,4 @@ def test_loop(dataloader, model, loss_fn):
     #print(f"Test Error: \n Accuracy: {(100*test_error):>0.1f}%, Avg loss: {test_error:>8f} \n")
     return test_error
 
-m = wdTuner(training_data, test_data, 15, 50, 20)
+m = wdTuner(training_data, test_data, 15, 100, 20)

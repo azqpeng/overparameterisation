@@ -15,7 +15,7 @@ with torch.no_grad():
     model.stack[4].weight = torch.nn.Parameter(torch.rand(1, 10))
 
 # Generate input on distribution from -1 to 1. 
-size = 1000
+size = 5000
 input_data = 2*(torch.rand(size, 1, 10)) - 1
 output_data = torch.zeros(size, 1, 1)
 with torch.no_grad():
